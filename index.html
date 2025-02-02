@@ -77,14 +77,18 @@
   </style>
 </head>
 
-<body class="font-sans">
+<body class="font-sans bg-gradient-to-r from-slate-900 to-slate-700">
   <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
   <header class="bg-blue-500 text-white p-4">
     <h1 class="text-2xl">Leo's Girlfriends</h1>
   </header>
-  <main id="content" class="py-4">
+  <main id="content" class="py-4 px-4">
+    <section class="grid grid-cols-1 text-white">
+    <h2 class="text-xl text-white"><span style="color: orange;"><strong>Leonardo DiCaprio</strong></span> refuses to date a woman his own age</h2>
+    <h3><span style="color: orange;"><strong>He</strong></span> gets older, they stay the same age. Leo's pushing <span style="color: orange"><strong>50</strong></span> now but prefers dating woman ≤ 25.</h3>
     <figure id="chart" alt="A data visualization showing Leonardo DiCaprio’s girlfriends over time. Leo's age is shown in orange, and the ages of his girlfriends are below."></figure>
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  </section>
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-4  text-white">
 <h3>Leonardo DiCaprio Girlfriend History: A Look at His Notable Relationships</h3>
 <p>Leonardo DiCaprio, an Academy Award-winning actor known for his compelling performances in films like <em>Titanic</em>, <em>The Revenant</em>, and <em>Inception</em>, has also made headlines for his romantic relationships. DiCaprio’s dating history is as intriguing as his film career, filled with high-profile romances and a distinct pattern in his choice of partners. This article explores his notable relationships and current dating status.</p>
 <h4><strong>Gisele Bündchen (2000 – 2005)</strong></h4>
@@ -150,18 +154,60 @@
 
       var leobirthday = new Date(1974, 11, 11);
 
-      // Use Promises to async request data
-      var promises = [d3.csv("https://github.com/Anni8827/AAPL-Stock-Price-Prediction-and-Forecasting/blob/main/AAPL.csv",d3.autoType)];
-      myDataPromises = Promise.all(promises);
+      // Define data
+      const df = [
+        { year: 1999, age_leo: 24, age_gf: 18, gf: "Gisele Bundchen" },
+        { year: 2000, age_leo: 25, age_gf: 19, gf: "Gisele Bundchen" },
+        { year: 2001, age_leo: 26, age_gf: 20, gf: "Gisele Bundchen" },
+        { year: 2002, age_leo: 27, age_gf: 21, gf: "Gisele Bundchen" },
+        { year: 2003, age_leo: 28, age_gf: 22, gf: "Gisele Bundchen" },
+        { year: 2004, age_leo: 29, age_gf: 23, gf: "Gisele Bundchen" },
+        { year: 2005, age_leo: 30, age_gf: 20, gf: "Bar Refaeli" },
+        { year: 2006, age_leo: 31, age_gf: 21, gf: "Bar Refaeli" },
+        { year: 2007, age_leo: 32, age_gf: 22, gf: "Bar Refaeli" },
+        { year: 2008, age_leo: 33, age_gf: 23, gf: "Bar Refaeli" },
+        { year: 2009, age_leo: 34, age_gf: 20, gf: "Bar Refaeli" },
+        { year: 2010, age_leo: 35, age_gf: 21, gf: "Bar Refaeli" },
+        { year: 2011, age_leo: 36, age_gf: 22, gf: "Blake Lively" },
+        { year: 2012, age_leo: 37, age_gf: 23, gf: "Erin Heatherton" },
+        { year: 2013, age_leo: 38, age_gf: 20, gf: "Toni Garrn" },
+        { year: 2014, age_leo: 39, age_gf: 21, gf: "Toni Garrn" },
+        { year: 2015, age_leo: 40, age_gf: 25, gf: "Kelly Rohrbach" },
+        { year: 2016, age_leo: 41, age_gf: 24, gf: "Nina Agdal" },
+        { year: 2017, age_leo: 42, age_gf: 25, gf: "Nina Agdal" },
+        { year: 2018, age_leo: 43, age_gf: 21, gf: "Camila Morrone" },
+        { year: 2019, age_leo: 44, age_gf: 22, gf: "Camila Morrone" },
+        { year: 2020, age_leo: 45, age_gf: 23, gf: "" },
+        { year: 2021, age_leo: 46, age_gf: 24, gf: "" },
+        { year: 2022, age_leo: 47, age_gf: 25, gf: "" },
+        { year: 2023, age_leo: 48, age_gf: 26, gf: "" },
+        { year: 2024, age_leo: 49, age_gf: 22, gf: "" },
+        { year: 2025, age_leo: 50, age_gf: 21, gf: "" },
+      ];
 
-      // After data is successfully fetched, generate viz
-      myDataPromises.then(function(data) {
+      const max_points = [
+        { x: 2010, y: 25 },
+        { x: 2015, y: 25 },
+        { x: 2017, y: 25 }
+      ];
 
-      // Define the data
-      var aapl = data[0];
+      const images = [
+        { name: "Leonardo DiCaprio", pos: 1999, pal_label: "#FD7600" },
+        { name: "Gisele Bundchen", pos: 1999.5, pal_label: "#24C4C4" },
+        { name: "Bar Refaeli", pos: 2005.5, pal_label: "#24C4C4" },
+        { name: "Blake Lively", pos: 2011.5, pal_label: "#24C4C4" },
+        { name: "Erin Heatherton", pos: 2012.5, pal_label: "#24C4C4" },
+        { name: "Toni Garrn", pos: 2013.5, pal_label: "#24C4C4" },
+        { name: "Kelly Rohrbach", pos: 2015.5, pal_label: "#24C4C4" },
+        { name: "Nina Agdal", pos: 2016.5, pal_label: "#24C4C4" },
+        { name: "Camila Morrone", pos: 2018.5, pal_label: "#24C4C4" }
+      ];
 
       var chart = {
         width: width,
+        height: 400,
+        marginTop: 40,
+        marginBottom: 40,
         style: {
           fontSize: size,
           paddingBottom: 0,
@@ -170,22 +216,36 @@
         y: {
           tickSize: 4,
           nice: true,
-          labelOffset: 0
+          labelOffset: 0,
+          tickFormat: "Y",
+          domain: [15, 50],
         },
         x: {
           tickSize: 0,
-          nice: true,
+          tickFormat: "Y",
         },
         color: {
           legend: true,
         },
         marks: [
-          Plot.lineY(aapl, {x: "Date", y: "Close"}).plot({y: {grid: true}})
+          // Leo's age line
+          Plot.line(df, {x: "year", y: "age_leo", stroke: "#FD7600"}),
+          // Girlfriend's age segments
+          Plot.barY(df, {x: "year", y: "age_gf", stroke: "#24C4C4", y1: 15, y2: "age_gf"}),
+          // Max age annotations
+          Plot.text(max_points, {x: "x", y: "y", text: "Leo's Age Limit", color: "#B6B6B6"}),
+          // Connectors for images
+          // Plot.segment(images, {x: "pos", y: -13, y1: -10, stroke: "#24C4C4"}),
+          // Plot images
+          // Plot.image(images, {x: "pos", href: (d) => `images/${d.name.toLowerCase().replace(" ", "_")}.png`, width: 30}),
+          // Rich text
+          // Plot.text(images, {
+          //   x: "pos", text: "name", fill: "#24C4C4", fontSize: 12, fontWeight: "bold"
+          // })
         ]
       };
 
       document.getElementById("chart").appendChild(Plot.plot(chart));
-      });
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
 </body>
