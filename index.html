@@ -67,6 +67,10 @@
       /* Above WP toolbar */
     }
 
+    figure{
+      width: 100%;
+    }
+
 
     @media screen and (min-width:770px) {
 
@@ -244,16 +248,36 @@
           }),
           // Girlfriend's age segments
           Plot.barY(df, {x: "year", y: "age_gf", stroke: "#24C4C4", y1: 15, y2: "age_gf"}),
+          Plot.text(df, {
+            x: "year",
+            y: (d) => d.age_gf + 1,
+            dy: -2,
+            text: (d) => d.age_gf.toString(),
+            fontSize: 12, 
+            fill: "white",
+            textAnchor: "middle",
+          }),
           // Max age annotations
-          Plot.text(max_points, {x: "x", y: "y", text: "Leo's Age Limit", color: "#B6B6B6"}),
+          // Plot.text(max_points, {x: "x", y: "y", text: "Leo's Age Limit", color: "#B6B6B6"}),
           Plot.image(df, {
             filter: d => d.year != "2009" && d.year != "2022",
             x: "year",
-            y: "age_gf",
-            src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
+            y: 15,
+            r: 12,
             width: 40,
-            title: "gf",
+            dy: -12,
+            preserveAspectRatio: "xMidYMin slice",
+            src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
+            title: "gf"
           }),
+          // Plot.image(df, {
+          //   filter: d => d.year != "2009" && d.year != "2022",
+          //   x: "year",
+          //   y: "age_gf",
+          //   src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
+          //   width: 40,
+          //   title: "gf",
+          // }),
           Plot.image(df, Plot.selectLast({
             x: "year",
             y: "age_leo",
