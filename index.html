@@ -8,7 +8,7 @@
   <meta name="description" content="Leonardo DiCaprio’s Girlfriends And Infamous Dating History">
   <meta name="author" content="Justin Chill">
   <!-- OpenGraph tags -->
-  <meta name="keywords" content="data visualization, Leo, Leonardo DiCaprio, Dating History, dating, sex, models, Naomi, Nina, Kristen Zang, ">
+  <meta name="keywords" content="data visualization, Leo, Leonardo DiCaprio, dating history, dating, sex, models, Naomi, Nina, Kristen Zang, Camila Morrone, Toni Garrn, Blake Lively, Bar Refaeli, Gisele Bündchen">
   <meta name="robots" content="all">
   <meta content="en_US" property="og:locale">
   <meta content="LeosGF" property="og:site_name">
@@ -88,9 +88,11 @@
     <h3><span style="color: orange;"><strong>He</strong></span> gets older, they stay the same age. Leo's pushing <span style="color: orange"><strong>50</strong></span> now but prefers dating woman ≤ 25.</h3>
     <figure id="chart" alt="A data visualization showing Leonardo DiCaprio’s girlfriends over time. Leo's age is shown in orange, and the ages of his girlfriends are below."></figure>
   </section>
+  <section class="text-white">
+    <h3 class="text-xl">Leonardo DiCaprio Girlfriend History: A Look at His Notable Relationships</h3>
+    <p>Leonardo DiCaprio, an Academy Award-winning actor known for his compelling performances in films like <em>Titanic</em>, <em>The Revenant</em>, and <em>Inception</em>, has also made headlines for his romantic relationships. DiCaprio’s dating history is as intriguing as his film career, filled with high-profile romances and a distinct pattern in his choice of partners. This article explores his notable relationships and current dating status.</p>
+  </section>
     <section class="grid grid-cols-1 md:grid-cols-2 gap-4  text-white">
-<h3>Leonardo DiCaprio Girlfriend History: A Look at His Notable Relationships</h3>
-<p>Leonardo DiCaprio, an Academy Award-winning actor known for his compelling performances in films like <em>Titanic</em>, <em>The Revenant</em>, and <em>Inception</em>, has also made headlines for his romantic relationships. DiCaprio’s dating history is as intriguing as his film career, filled with high-profile romances and a distinct pattern in his choice of partners. This article explores his notable relationships and current dating status.</p>
 <h4><strong>Gisele Bündchen (2000 – 2005)</strong></h4>
 
 <p>One of DiCaprio’s most famous relationships was with supermodel Gisele Bündchen. They began dating in 2000 and were often seen together at red carpet events and charity functions. Their relationship lasted for five years, ending in 2005, but they remain on good terms. Gisele has spoken fondly of her time with DiCaprio, despite their split.</p>
@@ -116,7 +118,8 @@
 
 <p>As of 2024, Leonardo DiCaprio is reportedly single, focusing on his career and environmental activism. He has been linked to various women since his split from Morrone, but no official relationships have been confirmed.</p>
 
-<h3><strong>FAQs</strong></h3>
+<h3 class=""><strong>FAQs</strong></h3>
+<p></p>
 
 <h4><strong>Who is Leonardo DiCaprio current Girlfriend?</strong></h4>
 
@@ -180,9 +183,9 @@
         { year: 2020, age_leo: 45, age_gf: 23, gf: "" },
         { year: 2021, age_leo: 46, age_gf: 24, gf: "" },
         { year: 2022, age_leo: 47, age_gf: 25, gf: "" },
-        { year: 2023, age_leo: 48, age_gf: 26, gf: "" },
-        { year: 2024, age_leo: 49, age_gf: 22, gf: "" },
-        { year: 2025, age_leo: 50, age_gf: 21, gf: "" },
+        { year: 2023, age_leo: 48, age_gf: 24, gf: "Vittoria Ceretti" },
+        { year: 2024, age_leo: 49, age_gf: 25, gf: "Vittoria Ceretti" },
+        { year: 2025, age_leo: 50, age_gf: 26, gf: "Vittoria Ceretti" },
       ];
 
       const max_points = [
@@ -211,7 +214,7 @@
         style: {
           fontSize: size,
           paddingBottom: 0,
-          textTransform: "capitalize",
+          overflow: "visible"
         },
         y: {
           tickSize: 4,
@@ -229,19 +232,46 @@
         },
         marks: [
           // Leo's age line
-          Plot.line(df, {x: "year", y: "age_leo", stroke: "#FD7600"}),
+          Plot.line(df, {x: "year", y: "age_leo", stroke: "#FD7600", marker: "circle"}),
+          Plot.text(df, {
+            x: "year",
+            y: (d) => d.age_leo + 1,
+            dy: -2,
+            text: (d) => d.age_leo.toString(),
+            fontSize: 12, 
+            fill: "#FD7600",
+            textAnchor: "middle",
+          }),
           // Girlfriend's age segments
           Plot.barY(df, {x: "year", y: "age_gf", stroke: "#24C4C4", y1: 15, y2: "age_gf"}),
           // Max age annotations
           Plot.text(max_points, {x: "x", y: "y", text: "Leo's Age Limit", color: "#B6B6B6"}),
-          // Connectors for images
-          // Plot.segment(images, {x: "pos", y: -13, y1: -10, stroke: "#24C4C4"}),
-          // Plot images
-          // Plot.image(images, {x: "pos", href: (d) => `images/${d.name.toLowerCase().replace(" ", "_")}.png`, width: 30}),
-          // Rich text
-          // Plot.text(images, {
-          //   x: "pos", text: "name", fill: "#24C4C4", fontSize: 12, fontWeight: "bold"
-          // })
+          Plot.image(df, {
+            x: "year",
+            y: "age_gf",
+            src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
+            width: 40,
+            title: "gf",
+          }),
+          Plot.image(df, Plot.selectLast({
+            x: "year",
+            y: "age_leo",
+            src: (d) => `images/leonardo_dicaprio.png`,
+            width: 40,
+            dy: -40,
+            title: "Leonardo DiCaprio",
+          })),
+          Plot.text([
+            {x: 2025, y: 35, text: "As per `Leo's Law`, 4 relationships ended\nwhen they reached Leo's cutoff age of 25.", size: 14}
+          ], {
+            x: "x",
+            y: "y",
+            text: (d) => d.text,
+            fontSize: 14,
+            frameAnchor: "right",
+            textAnchor: "end",
+            dy: -20,
+          })
         ]
       };
 
