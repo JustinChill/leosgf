@@ -31,8 +31,77 @@
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
   </script>
-
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/umd/simple-datatables.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/style.min.css" rel="stylesheet">
   <style>
+    /* Remove margin and padding from elements */
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    dd,
+    figure,
+    figcaption,
+    dl,
+    dd,
+    dt {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    /* Inherit colors */
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    li,
+    dt,
+    dd {
+      color: currentColor;
+    }
+
+    /* Set HTML color-scheme value based on current theme */
+    html {
+      color-scheme: light;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html[data-theme=dark] {
+      color-scheme: dark;
+    }
+
+    body {
+      /* Hide persistent scrollbar in IE (10/11) and Edge */
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+
+      /* Anchor links will transition rather than skip */
+      scroll-behavior: smooth;
+
+      /* Reset font size to 1rem, in case it has a pixel value */
+      font-size: 1rem;
+      min-height: 100vh;
+    }
+
+    /* Remove list styles on ul, ol elements with a class attribute */
+    ul[class],
+    ol[class] {
+      list-style: none;
+    }
+
+    /* Elements that don't have a class get default styles */
+    a:not([class]) {
+      text-decoration: underline;
+      -webkit-text-decoration-skip: ink;
+      text-decoration-skip-ink: auto;
+      cursor: pointer;
+      text-decoration-thickness: from-font;
+      text-underline-offset: 0.215em;
+    }
+
     /*--------------------------------------------------------------
     Accessibility
     --------------------------------------------------------------*/
@@ -67,8 +136,68 @@
       /* Above WP toolbar */
     }
 
+    /* FocuCSSingly */
+    a,
+    button,
+    input,
+    select,
+    submit,
+    textarea,
+    [tabindex]:not([tabindex="-1"]) {
+      outline: 2px solid transparent;
+      outline-offset: 5px;
+      -webkit-transition: outline-offset .2s linear;
+      -o-transition: outline-offset .2s linear;
+      transition: outline-offset .2s linear;
+    }
+
+    a:focus,
+    button:focus,
+    input:focus,
+    select:focus,
+    submit:focus,
+    textarea:focus,
+    [tabindex]:not([tabindex="-1"]):focus {
+      outline-color: currentColor;
+      outline-offset: 2px;
+    }
+
+    /* Article typography */
+    p,
+    main h1,
+    ul,
+    ol,
+    a,
+    cite,
+    aside,
+    {
+    font-style: normal;
+    font-size: calc(1.125rem + .25vw);
+    line-height: calc(1.5em + .2vw);
+    letter-spacing: -.003em;
+    color: rgba(0, 0, 0, .84);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    }
+
     figure{
       width: 100%;
+    }
+
+    svg[class*="plot"] {
+      overflow: visible;
+      text-rendering: optimizeLegibility;
+    }
+
+    .datatable-sorter::before {
+      border-top: 4px solid #fff;
+      bottom: 0px;
+    }
+
+    .datatable-sorter::after {
+      border-bottom: 4px solid #fff;
+      border-top: 4px solid transparent;
+      top: 0px;
     }
 
 
@@ -78,73 +207,164 @@
     @media screen and (min-width:1000px) {
   
     }
+    /* Print styles (don't forget about print styles!) */
+    @media print {
+      a[href]:after {
+        content: " (" attr(href) ") ";
+        /* Append the full URL after a link if printed */
+      }
+    }
+
   </style>
 </head>
 
 <body class="font-sans bg-gradient-to-r from-slate-900 to-slate-700">
   <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-  <header class="bg-blue-500 text-white p-4">
-    <h1 class="text-2xl">Leo's Girlfriends</h1>
-  </header>
-  <main id="content" class="py-4 px-4 w-full max-w-6xl mx-auto">
-    <section class="grid grid-cols-1 text-white">
-    <h2 class="text-xl text-white"><span style="color: orange;"><strong>Leonardo DiCaprio</strong></span> refuses to date a woman his own age</h2>
-    <h3><span style="color: orange;"><strong>He</strong></span> gets older, they stay the same age. Leo's pushing <span style="color: orange"><strong>50</strong></span> now but prefers dating woman ≤ 25.</h3>
-    <figure id="chart" alt="A data visualization showing Leonardo DiCaprio’s girlfriends over time. Leo's age is shown in orange, and the ages of his girlfriends are below."></figure>
-  </section>
-  <section class="text-white m-6">
-    <h3 class="text-xl">Leonardo DiCaprio Girlfriend History: A Look at His Notable Relationships</h3>
+
+  <main id="content" class="bg-white bg-opacity-10 dark:bg-slate-400/70 py-4 px-4 w-full max-w-6xl mx-auto grid max-w-screen-lg px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12">
+    <section class="rounded-lg max-w-screen-lg mx-auto col-span-full">
+        <div class="grid max-w-screen-lg px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div class="mr-auto place-self-center lg:col-span-7">
+                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-gray-400"><span style="color: orange;"><strong>Leonardo DiCaprio</strong></span> refuses to date a woman his own age</h1>
+                <p class="max-w-2xl mb-6 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl"><span style="color: orange;"><strong>He</strong></span> gets older, they stay the same age. Leo's pushing <span style="color: orange"><strong>50</strong></span> now but prefers dating woman ≤ 25.</p>
+            </div>
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                <img src="images/leo_shirtless.png" alt="A young Leonardo DiCaprio wearing a bathing suit a looking happy." class="rounded-full w-96 h-96 transition-all duration-300 filter grayscale hover:grayscale-0 drop-shadow-lg">
+            </div>                
+        </div>
+    </section>
+    <figure id="chart" alt="A data visualization showing Leonardo DiCaprio’s girlfriends over time. Leo's age is shown in orange, and the ages of his girlfriends are below." class="text-white col-span-full py-8 lg:py-12"></figure>
+  <article class="text-white m-6 col-span-full">
+    <h3 class="text-2xl">Leonardo DiCaprio's dating history: A look at notable past relationships</h3>
     <p>Leonardo DiCaprio, an Academy Award-winning actor known for his compelling performances in films like <em>Titanic</em>, <em>The Revenant</em>, and <em>Inception</em>, has also made headlines for his romantic relationships. DiCaprio’s dating history is as intriguing as his film career, filled with high-profile romances and a distinct pattern in his choice of partners. This article explores his notable relationships and current dating status.</p>
-  </section>
+
+    <table id="relationships" class="display dataTable py-8 lg:py-12" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Year began dating</th>
+                    <th>Age at introduction</th>
+                    <th>Age at split</th>
+                    <th>Nationality</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gisele Bündchen</td>
+                    <td>2000</td>
+                    <td>20</td>
+                    <td>25</td>
+                    <td>Brazilian</td>
+                </tr>
+                <tr>
+                    <td>Bar Refaeli</td>
+                    <td>2005</td>
+                    <td>20</td>
+                    <td>25</td>
+                    <td>Israeli</td>
+                </tr>
+                <tr>
+                    <td>Blake Lively</td>
+                    <td>2011</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>American</td>
+                </tr>
+                <tr>
+                    <td>Erin Heatherton</td>
+                    <td>2012</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>American</td>
+                </tr>
+                <tr>
+                    <td>Toni Garrn</td>
+                    <td>2013</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>German</td>
+                </tr>
+                <tr>
+                    <td>Kelly Rohrbach</td>
+                    <td>2015</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td>American</td>
+                </tr>
+                <tr>
+                    <td>Nina Agdal</td>
+                    <td>2016</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td>Danish</td>
+                </tr>
+                <tr>
+                    <td>Lorena Rae</td>
+                    <td>2017</td>
+                    <td>23</td>
+                    <td></td>
+                    <td>German</td>
+                </tr>
+                <tr>
+                    <td>Camila Morrone</td>
+                    <td>2017</td>
+                    <td>20</td>
+                    <td>25</td>
+                    <td>American and Argentinian</td>
+                </tr>
+            </tfoot>
+        </table>
+
     <section class="grid grid-cols-1 md:grid-cols-2 gap-4  text-white">
-<h4><strong>Gisele Bündchen (2000 – 2005)</strong></h4>
+    <h4><strong>Gisele Bündchen (2000 – 2005)</strong></h4>
 
-<p>One of DiCaprio’s most famous relationships was with supermodel Gisele Bündchen. They began dating in 2000 and were often seen together at red carpet events and charity functions. Their relationship lasted for five years, ending in 2005, but they remain on good terms. Gisele has spoken fondly of her time with DiCaprio, despite their split.</p>
-<h4><strong>Bar Refaeli (2005 – 2011)</strong></h4>
+    <p>One of DiCaprio’s most famous relationships was with supermodel Gisele Bündchen. They began dating in 2000 and were often seen together at red carpet events and charity functions. Their relationship lasted for five years, ending in 2005, but they remain on good terms. Gisele has spoken fondly of her time with DiCaprio, despite their split.</p>
+    <h4><strong>Bar Refaeli (2005 – 2011)</strong></h4>
 
-<p>Following his relationship with Gisele, DiCaprio dated Israeli supermodel Bar Refaeli. Their on-and-off relationship spanned several years, with the couple often spotted together at various events. They officially ended their relationship in 2011, and Refaeli later stated that their breakup was amicable.</p>
+    <p>Following his relationship with Gisele, DiCaprio dated Israeli supermodel Bar Refaeli. Their on-and-off relationship spanned several years, with the couple often spotted together at various events. They officially ended their relationship in 2011, and Refaeli later stated that their breakup was amicable.</p>
 
-<h4><strong>Blake Lively (2011)</strong></h4>
-<p>DiCaprio had a brief romance with actress <a href="https://celebritydatinghistory.com/relationship-timeline/blake-lively-boyfriend/">Blake Lively</a> in 2011. Their relationship was short-lived but highly publicized, as both were at the peak of their careers. They were spotted together on several occasions, but the romance fizzled out after a few months.</p>
-<h4><strong>Toni Garrn (2013 – 2014)</strong></h4>
+    <h4><strong>Blake Lively (2011)</strong></h4>
+    <p>DiCaprio had a brief romance with actress <a href="https://celebritydatinghistory.com/relationship-timeline/blake-lively-boyfriend/">Blake Lively</a> in 2011. Their relationship was short-lived but highly publicized, as both were at the peak of their careers. They were spotted together on several occasions, but the romance fizzled out after a few months.</p>
+    <h4><strong>Toni Garrn (2013 – 2014)</strong></h4>
 
-<p>In 2013, DiCaprio began dating German model Toni Garrn. Their relationship lasted for about a year, during which they attended various events together. They eventually split in late 2014, but Garrn has often expressed respect for DiCaprio, acknowledging their time together.</p>
+    <p>In 2013, DiCaprio began dating German model Toni Garrn. Their relationship lasted for about a year, during which they attended various events together. They eventually split in late 2014, but Garrn has often expressed respect for DiCaprio, acknowledging their time together.</p>
 
-<h4><strong>Nina Agdal (2016 – 2017)</strong></h4>
+    <h4><strong>Nina Agdal (2016 – 2017)</strong></h4>
 
-<p>DiCaprio was linked to model Nina Agdal in 2016. The couple was seen together on vacation and at public events, but their relationship ended in 2017 after about a year of dating. Agdal has since moved on but has occasionally commented on her time with DiCaprio positively.</p>
+    <p>DiCaprio was linked to model Nina Agdal in 2016. The couple was seen together on vacation and at public events, but their relationship ended in 2017 after about a year of dating. Agdal has since moved on but has occasionally commented on her time with DiCaprio positively.</p>
 
-<h4><strong>Camila Morrone (2017 – 2022)</strong></h4>
+    <h4><strong>Camila Morrone (2017 – 2022)</strong></h4>
 
-<p>Leonardo DiCaprio’s most recent long-term relationship was with model and actress Camila Morrone. They began dating in late 2017 and were often seen together at various events, including the Oscars. However, the couple parted ways in early 2022 after nearly five years together, leading to much speculation about DiCaprio’s dating patterns.</p>
+    <p>Leonardo DiCaprio’s most recent long-term relationship was with model and actress Camila Morrone. They began dating in late 2017 and were often seen together at various events, including the Oscars. However, the couple parted ways in early 2022 after nearly five years together, leading to much speculation about DiCaprio’s dating patterns.</p>
 
-<h3><strong>Current Relationship Status</strong></h3>
+    <h3><strong>Current Relationship Status</strong></h3>
 
-<p>As of 2024, Leonardo DiCaprio is reportedly single, focusing on his career and environmental activism. He has been linked to various women since his split from Morrone, but no official relationships have been confirmed.</p>
+    <p>As of 2024, Leonardo DiCaprio is reportedly single, focusing on his career and environmental activism. He has been linked to various women since his split from Morrone, but no official relationships have been confirmed.</p>
 
-<h3 class=""><strong>FAQs</strong></h3>
-<p></p>
+    <h3 class=""><strong>FAQs</strong></h3>
+    <p></p>
 
-<h4><strong>Who is Leonardo DiCaprio current Girlfriend?</strong></h4>
+    <h4><strong>Who is Leonardo DiCaprio current Girlfriend?</strong></h4>
 
-<p>As of 2024, Leonardo DiCaprio is reportedly single and has not confirmed any new relationships since his breakup with Camila Morrone.</p>
+    <p>As of 2024, Leonardo DiCaprio is reportedly single and has not confirmed any new relationships since his breakup with Camila Morrone.</p>
 
-<h4><strong>How many serious relationships has Leonardo DiCaprio had?</strong></h4>
+    <h4><strong>How many serious relationships has Leonardo DiCaprio had?</strong></h4>
 
-<p>Leonardo DiCaprio has had several serious relationships, most notably with Gisele Bündchen, Bar Refaeli, Toni Garrn, and Camila Morrone.</p>
+    <p>Leonardo DiCaprio has had several serious relationships, most notably with Gisele Bündchen, Bar Refaeli, Toni Garrn, and Camila Morrone.</p>
 
-<h4><strong>Did Leonardo DiCaprio date Blake Lively?</strong></h4>
+    <h4><strong>Did Leonardo DiCaprio date Blake Lively?</strong></h4>
 
-<p>Yes, Leonardo DiCaprio briefly <a href="https://celebritydatinghistory.com/relationship-timeline/blake-lively-boyfriend/">dated Blake Lively</a> in 2011, but their relationship lasted only a few months.</p>
+    <p>Yes, Leonardo DiCaprio briefly <a href="https://celebritydatinghistory.com/relationship-timeline/blake-lively-boyfriend/">dated Blake Lively</a> in 2011, but their relationship lasted only a few months.</p>
 
-<h4><strong>Why did Leonardo DiCaprio and Camila Morrone break up?</strong></h4>
+    <h4><strong>Why did Leonardo DiCaprio and Camila Morrone break up?</strong></h4>
 
-<p>While the exact reasons for the breakup are not publicly known, speculation suggests they parted ways amicably after nearly five years together.</p>
+    <p>While the exact reasons for the breakup are not publicly known, speculation suggests they parted ways amicably after nearly five years together.</p>
 
-<h4><strong>Who is Leonardo DiCaprio’s longest-term girlfriend?</strong></h4>
+    <h4><strong>Who is Leonardo DiCaprio’s longest-term girlfriend?</strong></h4>
 
-<p>DiCaprio’s longest-term girlfriend was Camila Morrone, with whom he dated from late 2017 to early 2022.</p>
+    <p>DiCaprio’s longest-term girlfriend was Camila Morrone, with whom he dated from late 2017 to early 2022.</p>
 </section>
+</article>
   </main>
 
   <footer class="bg-gray-100 pt-12">
@@ -158,6 +378,15 @@
       var size = 12;
       var element = d3.select('figure').node();
       var width = element.getBoundingClientRect().width;
+
+      const dataTable = new simpleDatatables.DataTable("#relationships", {
+          searchable: false,
+          fixedHeight: false,
+          paging: false,
+          autoWidth: true,
+          responsive: true,
+          order: [[2, 'desc']]
+      });
 
       var leobirthday = new Date(1974, 11, 11);
 
@@ -198,18 +427,6 @@
         { x: 2017, y: 25 }
       ];
 
-      const images = [
-        { name: "Leonardo DiCaprio", pos: 1999, pal_label: "#FD7600" },
-        { name: "Gisele Bündchen", pos: 1999.5, pal_label: "#24C4C4" },
-        { name: "Bar Refaeli", pos: 2005.5, pal_label: "#24C4C4" },
-        { name: "Blake Lively", pos: 2011.5, pal_label: "#24C4C4" },
-        { name: "Erin Heatherton", pos: 2012.5, pal_label: "#24C4C4" },
-        { name: "Toni Garrn", pos: 2013.5, pal_label: "#24C4C4" },
-        { name: "Kelly Rohrbach", pos: 2015.5, pal_label: "#24C4C4" },
-        { name: "Nina Agdal", pos: 2016.5, pal_label: "#24C4C4" },
-        { name: "Camila Morrone", pos: 2018.5, pal_label: "#24C4C4" }
-      ];
-
       var chart = {
         width: width,
         height: 400,
@@ -218,7 +435,6 @@
         style: {
           fontSize: size,
           paddingBottom: 0,
-          overflow: "visible"
         },
         y: {
           tickSize: 4,
