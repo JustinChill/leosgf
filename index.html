@@ -1,746 +1,291 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-
+<html lang="en">
 <head>
-  <title>Leo's Girlfriends</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Leonardo DiCaprio’s Girlfriends And Infamous Dating History">
-  <meta name="author" content="Justin Chill">
-  <!-- OpenGraph tags -->
-  <meta name="keywords" content="data visualization, Leo, Leonardo DiCaprio, dating history, dating, sex, models, Naomi, Nina, Kristen Zang, Camila Morrone, Toni Garrn, Blake Lively, Bar Refaeli, Gisele Bündchen">
-  <meta name="robots" content="all">
-  <meta content="en_US" property="og:locale">
-  <meta content="LeosGF" property="og:site_name">
-  <meta content="website" property="og:type">
-  <meta content="https://leosgf.com" property="og:url">
-  <meta content="Leo's Girlfriends" property="og:title">
-  <meta content="Leonardo DiCaprio’s Girlfriends And Infamous Dating History posts" property="og:description">
-  <link rel="canonical" href="https://www.leosgf.com/index.html">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/main.css">
+     <link rel="icon" type="image/x-icon" href="images/icons8-maxcdn-32.png">
+     <title>Leo's Girlfriends</title>
+     <meta name="description" content="Leonardo DiCaprio’s Girlfriends And Infamous Dating History">
+     <meta name="author" content="Justin Chill">
+     <!-- OpenGraph tags -->
+     <meta name="keywords" content="data visualization, Leo, Leonardo DiCaprio, dating history, dating, sex, models, Naomi, Nina, Kristen Zang, Camila Morrone, Toni Garrn, Blake Lively, Bar Refaeli, Gisele Bündchen">
+     <meta name="robots" content="all">
+     <meta content="en_US" property="og:locale">
+     <meta content="LeosGF" property="og:site_name">
+     <meta content="website" property="og:type">
+     <meta content="https://leosgf.com" property="og:url">
+     <meta content="Leo's Girlfriends" property="og:title">
+     <meta content="Leonardo DiCaprio’s Girlfriends And Infamous Dating History posts" property="og:description">
+     <link rel="canonical" href="https://www.leosgf.com/index.html">
+     <meta name="twitter:card" content="summary_large_image">
+     <meta name="twitter:title" content="Leo's Girlfriends">
+     <meta name="twitter:description" content="Leonardo DiCaprio’s Girlfriends And Infamous Dating History">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Leo's Girlfriends">
-  <meta name="twitter:description" content="Leonardo DiCaprio’s Girlfriends And Infamous Dating History">
+     <link type="text/plain" href="humans.txt" rel="author">
+     <!-- <link rel="stylesheet" href="style.css"> -->
+     <link rel="icon" href="/favicon.ico">
+     <meta name="theme-color" content="#4C63B6">
 
-  <link type="text/plain" href="humans.txt" rel="author">
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <link rel="icon" href="/favicon.ico">
-  <meta name="theme-color" content="#4C63B6">
-
-  <script type="module">
-    document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/umd/simple-datatables.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/style.min.css" rel="stylesheet">
-  <style>
-    /* Remove margin and padding from elements */
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    dd,
-    figure,
-    figcaption,
-    dl,
-    dd,
-    dt {
-      margin: 0px;
-      padding: 0px;
-    }
-
-    /* Inherit colors */
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    li,
-    dt,
-    dd {
-      color: currentColor;
-    }
-
-    /* Set HTML color-scheme value based on current theme */
-    html {
-      color-scheme: light;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    html[data-theme=dark] {
-      color-scheme: dark;
-    }
-
-    body {
-      /* Hide persistent scrollbar in IE (10/11) and Edge */
-      -ms-overflow-style: -ms-autohiding-scrollbar;
-
-      /* Anchor links will transition rather than skip */
-      scroll-behavior: smooth;
-
-      /* Reset font size to 1rem, in case it has a pixel value */
-      font-size: 1rem;
-      min-height: 100vh;
-    }
-
-    /* Remove list styles on ul, ol elements with a class attribute */
-    ul[class],
-    ol[class] {
-      list-style: none;
-    }
-
-    /* Elements that don't have a class get default styles */
-    a:not([class]) {
-      text-decoration: underline;
-      -webkit-text-decoration-skip: ink;
-      text-decoration-skip-ink: auto;
-      cursor: pointer;
-      text-decoration-thickness: from-font;
-      text-underline-offset: 0.215em;
-    }
-
-    /*--------------------------------------------------------------
-    Accessibility
-    --------------------------------------------------------------*/
-    /* Text meant only for screen readers */
-    .screen-reader-text {
-      clip: rect(1px, 1px, 1px, 1px);
-      position: absolute !important;
-      height: 1px;
-      width: 1px;
-      overflow: hidden;
-    }
-
-    .screen-reader-text:hover,
-    .screen-reader-text:active,
-    .screen-reader-text:focus {
-      background-color: #f1f1f1;
-      border-radius: 3px;
-      box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-      clip: auto !important;
-      color: #21759b;
-      display: block;
-      font-size: 14px;
-      font-weight: bold;
-      height: auto;
-      left: 5px;
-      line-height: normal;
-      padding: 15px 23px 14px;
-      text-decoration: none;
-      top: 5px;
-      width: auto;
-      z-index: 100000;
-      /* Above WP toolbar */
-    }
-
-    /* FocuCSSingly */
-    a,
-    button,
-    input,
-    select,
-    submit,
-    textarea,
-    [tabindex]:not([tabindex="-1"]) {
-      outline: 2px solid transparent;
-      outline-offset: 5px;
-      -webkit-transition: outline-offset .2s linear;
-      -o-transition: outline-offset .2s linear;
-      transition: outline-offset .2s linear;
-    }
-
-    a:focus,
-    button:focus,
-    input:focus,
-    select:focus,
-    submit:focus,
-    textarea:focus,
-    [tabindex]:not([tabindex="-1"]):focus {
-      outline-color: currentColor;
-      outline-offset: 2px;
-    }
-
-    /* Article typography */
-    p,
-    main h1,
-    ul,
-    ol,
-    a,
-    cite,
-    aside,
-    {
-    font-style: normal;
-    font-size: calc(1.125rem + .25vw);
-    line-height: calc(1.5em + .2vw);
-    letter-spacing: -.003em;
-    color: rgba(0, 0, 0, .84);
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    }
-
-    figure{
-      width: 100%;
-    }
-
-    svg[class*="plot"] {
-      overflow: visible;
-      text-rendering: optimizeLegibility;
-    }
-
-    .datatable-sorter::before {
-      border-top: 4px solid #fff;
-      bottom: 0px;
-    }
-
-    .datatable-sorter::after {
-      border-bottom: 4px solid #fff;
-      border-top: 4px solid transparent;
-      top: 0px;
-    }
-
-
-    @media screen and (min-width:770px) {
-
-    }
-    @media screen and (min-width:1000px) {
-  
-    }
-    /* Print styles (don't forget about print styles!) */
-    @media print {
-      a[href]:after {
-        content: " (" attr(href) ") ";
-        /* Append the full URL after a link if printed */
-      }
-    }
-
-  </style>
+     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/style.min.css" rel="stylesheet">
 </head>
+<body>
+     <nav class="relative container mx-auto p-6">
+          <div class="flex item-center justify-between">
+               <!-- logo -->
+               <div class="pt-2">
+                    <!-- <img src="images/logo.svg" alt="logo image"> -->
+               </div>
+               <!-- Menu Items-->
+<!--                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-darkGrayisBlue">Pricing</a>
+                    <a href="#" class="hover:text-darkGrayisBlue">Product</a>
+                    <a href="#" class="hover:text-darkGrayisBlue">About Us</a>
+                    <a href="#" class="hover:text-darkGrayisBlue">Careers</a>
+                    <a href="#" class="hover:text-darkGrayisBlue">Community</a>
+               </div> -->
+               <!-- button -->
+               <a href="#features" class="hidden md:block py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">See the data</a>
 
-<body class="font-sans w-full h-screen px-10 pt-10 bg-gradient-to-r from-slate-900 to-slate-700">
-  <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-
-  <main id="content" class="bg-white bg-opacity-10 grid max-w-screen-lg mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12 w-full rounded-lg">
-    <section class="rounded-lg max-w-screen-lg mx-auto col-span-full">
-        <div class="grid max-w-screen-lg px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-gray-400"><span style="color: orange;"><strong>Leonardo DiCaprio</strong></span> refuses to date a woman his own age</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-300 lg:mb-8 md:text-lg lg:text-xl"><span style="color: orange;"><strong>He</strong></span> gets older, they stay the same age. Leo's pushing <span style="color: orange"><strong>50</strong></span> now but prefers dating women ≤ 25.</p>
-            </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="images/leo_shirtless.png" alt="A young Leonardo DiCaprio wearing a bathing suit a looking happy." class="rounded-full w-96 h-96 transition-all duration-300 filter grayscale hover:grayscale-0 drop-shadow-lg">
-            </div>                
-        </div>
-    </section>
-    <figure id="chart" alt="A data visualization showing Leonardo DiCaprio’s girlfriends over time. Leo's age is shown in orange, and the ages of his girlfriends are below." class="text-white col-span-full py-8 lg:py-12"></figure>
-  <article class="text-white m-6 col-span-full">
-    <h3 class="text-2xl">Leonardo DiCaprio's dating history: A look at notable past relationships</h3>
-    <p>Leonardo DiCaprio, an Academy Award-winning actor known for his compelling performances in films like <em>Titanic</em>, <em>The Revenant</em>, and <em>Inception</em>, has also made headlines for his romantic relationships. DiCaprio’s dating history is as intriguing as his film career, filled with high-profile romances and a distinct pattern in his choice of partners. This article explores his notable relationships and current dating status.</p>
-
-    <table id="relationships" class="display dataTable" style="width:100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Year began dating</th>
-                    <th>Age at introduction</th>
-                    <th>Age at split</th>
-                    <th>Nationality</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Gisele Bündchen</td>
-                    <td>2000</td>
-                    <td>20</td>
-                    <td>25</td>
-                    <td>Brazilian</td>
-                </tr>
-                <tr>
-                    <td>Bar Refaeli</td>
-                    <td>2005</td>
-                    <td>20</td>
-                    <td>25</td>
-                    <td>Israeli</td>
-                </tr>
-                <tr>
-                    <td>Blake Lively</td>
-                    <td>2011</td>
-                    <td>23</td>
-                    <td>24</td>
-                    <td>American</td>
-                </tr>
-                <tr>
-                    <td>Erin Heatherton</td>
-                    <td>2012</td>
-                    <td>22</td>
-                    <td>23</td>
-                    <td>American</td>
-                </tr>
-                <tr>
-                    <td>Toni Garrn</td>
-                    <td>2013</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>German</td>
-                </tr>
-                <tr>
-                    <td>Kelly Rohrbach</td>
-                    <td>2015</td>
-                    <td>25</td>
-                    <td>25</td>
-                    <td>American</td>
-                </tr>
-                <tr>
-                    <td>Nina Agdal</td>
-                    <td>2016</td>
-                    <td>24</td>
-                    <td>24</td>
-                    <td>Danish</td>
-                </tr>
-                <tr>
-                    <td>Lorena Rae</td>
-                    <td>2017</td>
-                    <td>23</td>
-                    <td></td>
-                    <td>German</td>
-                </tr>
-                <tr>
-                    <td>Camila Morrone</td>
-                    <td>2017</td>
-                    <td>20</td>
-                    <td>25</td>
-                    <td>American and Argentinian</td>
-                </tr>
-            </tfoot>
-        </table>
-
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 p-3 md:p-4 xl:p-5 dark:bg-gray-900">
-            <div class="relative mt-16 mb-32 max-w-sm mx-auto mt-24">
-                <div class="rounded overflow-hidden shadow-md bg-white">
-                    <div class="absolute -mt-20 w-full flex justify-center">
-                        <div class="h-32 w-32">
-                            <img src="https://media.allure.com/photos/5f8db5f65611fc41904f9ad5/16:9/w_2560%2Cc_limit/Gisele%2520Bundchen%2520@Nino%2520Munoz%2520for%2520Dior%2520Skincare%252005.jpg" class="rounded-full object-cover h-full w-full shadow-md" />
-                        </div>
-                    </div>
-                    <div class="px-6 mt-16">
-                        <h1 class="font-bold text-3xl text-center mb-1 text-gray-500">Gisele Bündchen</h1>
-                        <p class="text-gray-800 text-sm text-center">Brazilian fashion model</p>
-                        <div class="w-full flex justify-center pt-5 pb-5">
-                            <a href="https://www.tiktok.com/@gisele" class="mx-5">
-                                <div aria-label="TikTok">
-                                  <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="#718096" stroke-width="1.5" stroke-linejoin="round"></path> </g></svg>
-                                </div>
-                            </a>
-                            <a href="https://www.instagram.com/gisele" class="mx-5">
-                                <div aria-label="Instagram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-instagram">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </div>
-                            </a>
-                            <a href="https://twitter.com/giseleofficial" class="mx-5">
-                                <div aria-label="Twitter">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-twitter">
-                                        <path
-                                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+               <!-- Hamburger Icon -->
+<!--                <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+               </button> -->
+          </div>
+           <!-- Mobile Menu -->
+          <div class="md:hidden">
+               <div id="menu" class="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+                 <a href="#">Pricing</a>
+                 <a href="#">Product</a>
+                 <a href="#">About Us</a>
+                 <a href="#">Careers</a>
+                 <a href="#">Community</a>
+               </div>
+          </div>
+          
+     </nav>
+     <main class="grid max-w-screen-lg mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12 w-full rounded-lg">
+     <section id="hero" class="col-span-full">
+          <div class="container flex flex-col-reverse md:flex-row item-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+               <!-- left item -->
+               <div class="flex flex-col mb-32 space-y-12 md:w-1/2 justify-center">
+                    <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left"><span style="color: orange;"><strong>Leonardo DiCaprio</strong></span> refuses to date a woman his own age</h1>
+                    <p class="max-w-sm text-center text-darkGrayisBlue md:text-left">
+                       
+                    </p>
+               </div>
+               <!-- Images -->
+               <div class="md:w-1/3 drop-shadow-lg mx-auto">
+                    <img src="images/leo_shirtless.png" alt="A young Leonardo DiCaprio wearing a bathing suit a looking happy." class="rounded-full transition-all duration-300 filter grayscale hover:grayscale-0 drop-shadow-lg" >
+               </div>
+          </div>
+     </section>
+     <!-- features section -->
+     <section class="col-span-full">
+      <div class="container flex flex-col-reverse md:flex-row item-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+        <h2><span style="color: orange;"><strong>He</strong></span> gets older, they stay the same age. Leo's <span style="color: orange"><strong>50</strong></span> years old but prefers dating women ≤ 25.</h2>
                 </div>
+       <figure id="chart" alt="A data visualization showing Leonardo DiCaprio’s girlfriends over time. Leo's age is shown in orange, and the ages of his girlfriends are below." class="flex-col"></figure>
+     </section>
+     <section id="features" class="col-span-full">
+          <!-- Flex container -->
+          <div
+            class="container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row"
+          >
+            <!-- What's Different -->
+            <div class="flex flex-col space-y-12 md:w-1/2">
+
+              <h2 class="max-w-md text-4xl font-bold text-center md:text-left">
+                Leo's previous girlfriends
+              </h2>
+
+              <p class="max-w-sm text-center text-darkGrayishBlue md:text-left">
+                As a lifelong celebrity, Leo has aged in the public eye, with every relationship, date, casual fling, and outing generating press and media attention. Most of his high-profile relationships have been with women under the age of 25. His last long-term relationship, with actor and model Camila Morrone, ended shortly after she turned 25.
+              </p>
             </div>
-            <div class="relative mt-16 mb-32 max-w-sm mx-auto mt-24">
-                <div class="rounded overflow-hidden shadow-md bg-white">
-                    <div class="absolute -mt-20 w-full flex justify-center">
-                        <div class="h-32 w-32">
-                            <img src="https://m.media-amazon.com/images/M/MV5BMTY5MjYwMzY5NV5BMl5BanBnXkFtZTcwOTM3MDAzNQ@@._V1_FMjpg_UX1000_.jpg" class="rounded-full object-cover h-full w-full shadow-md" />
-                        </div>
-                    </div>
-                    <div class="px-6 mt-16">
-                        <h1 class="font-bold text-3xl text-center mb-1 text-gray-500">Bar Refaeli</h1>
-                        <p class="text-gray-800 text-sm text-center">Israeli model and television host</p>
-                        <div class="w-full flex justify-center pt-5 pb-5">
-                            <a href="https://www.tiktok.com/@bar.refaeli" class="mx-5">
-                              <div aria-label="TikTok">
-                                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="#718096" stroke-width="1.5" stroke-linejoin="round"></path> </g></svg>
-                              </div>
-                            </a>
-                            <a href="https://www.instagram.com/barrefaeli/" class="mx-5">
-                                <div aria-label="Instagram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-instagram">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+    
+            <!-- Numbered List -->
+            <div class="flex flex-col space-y-8 md:w-1/2">
+              <!-- List Item 1 -->
+              <table id="relationships" class="display dataTable" style="width:100%">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Year began dating</th>
+                              <th>Age at introduction</th>
+                              <th>Age at split</th>
+                              <th>Nationality</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>Gisele Bündchen</td>
+                              <td>2000</td>
+                              <td>20</td>
+                              <td>25</td>
+                              <td>Brazilian</td>
+                          </tr>
+                          <tr>
+                              <td>Bar Refaeli</td>
+                              <td>2005</td>
+                              <td>20</td>
+                              <td>25</td>
+                              <td>Israeli</td>
+                          </tr>
+                          <tr>
+                              <td>Blake Lively</td>
+                              <td>2011</td>
+                              <td>23</td>
+                              <td>24</td>
+                              <td>American</td>
+                          </tr>
+                          <tr>
+                              <td>Erin Heatherton</td>
+                              <td>2012</td>
+                              <td>22</td>
+                              <td>23</td>
+                              <td>American</td>
+                          </tr>
+                          <tr>
+                              <td>Toni Garrn</td>
+                              <td>2013</td>
+                              <td>21</td>
+                              <td>22</td>
+                              <td>German</td>
+                          </tr>
+                          <tr>
+                              <td>Kelly Rohrbach</td>
+                              <td>2015</td>
+                              <td>25</td>
+                              <td>25</td>
+                              <td>American</td>
+                          </tr>
+                          <tr>
+                              <td>Nina Agdal</td>
+                              <td>2016</td>
+                              <td>24</td>
+                              <td>24</td>
+                              <td>Danish</td>
+                          </tr>
+                          <tr>
+                              <td>Lorena Rae</td>
+                              <td>2017</td>
+                              <td>23</td>
+                              <td></td>
+                              <td>German</td>
+                          </tr>
+                          <tr>
+                              <td>Camila Morrone</td>
+                              <td>2017</td>
+                              <td>20</td>
+                              <td>25</td>
+                              <td>American and Argentinian</td>
+                          </tr>
+                      </tfoot>
+                  </table>
+            </div>
+          </div>
+        </section>
+        <section class="col-span-full">
+            <!-- Cards Container -->
+            <div class="flex flex-wrap justify-center gap-6">
+              <!-- Card 1 -->
+              <div class="bg-white shadow-md rounded-lg overflow-hidden max-w-sm flex flex-col">
+                <img src="https://media.allure.com/photos/5f8db5f65611fc41904f9ad5/16:9/w_2560%2Cc_limit/Gisele%2520Bundchen%2520@Nino%2520Munoz%2520for%2520Dior%2520Skincare%252005.jpg" alt="Gisele Bündchen" class="w-full h-48 object-cover">
+                <div class="p-4">
+                  <h2 class="text-lg font-semibold text-gray-800">Gisele Bündchen</h2>
+                  <p class="text-gray-600 mt-2">Brazilian fashion model</p>
                 </div>
-            </div>
-            <div class="relative mt-16 mb-32 max-w-sm mx-auto mt-24">
-                <div class="rounded overflow-hidden shadow-md bg-white">
-                    <div class="absolute -mt-20 w-full flex justify-center">
-                        <div class="h-32 w-32">
-                            <img src="https://themusicessentials.com/wp-content/uploads/2025/01/Blake-Lively-Video.webp" class="rounded-full object-cover h-full w-full shadow-md" />
-                        </div>
-                    </div>
-                    <div class="px-6 mt-16">
-                        <h1 class="font-bold text-3xl text-center mb-1 text-gray-500">Blake Lively</h1>
-                        <p class="text-gray-800 text-sm text-center">American actress</p>
-                        <div class="w-full flex justify-center pt-5 pb-5">
-                            <a href="https://twitter.com/blakelively" class="mx-5">
-                                <div aria-label="Twitter">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-twitter">
-                                        <path
-                                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </a>
-                            <a href="https://www.instagram.com/blakelively" class="mx-5">
-                                <div aria-label="Instagram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-instagram">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="bg-white shadow-md rounded-lg overflow-hidden max-w-sm flex flex-col">
+                <img src="https://m.media-amazon.com/images/M/MV5BMTY5MjYwMzY5NV5BMl5BanBnXkFtZTcwOTM3MDAzNQ@@._V1_FMjpg_UX1000_.jpg" alt="Bar Refaeli" class="w-full h-48 object-cover">
+                <div class="p-4">
+                  <h2 class="text-lg font-semibold text-gray-800">Bar Refaeli</h2>
+                  <p class="text-gray-600 mt-2">Israeli model and television host</p>
                 </div>
-            </div>
+              </div>
 
-            <div class="relative mt-16 mb-32 max-w-sm mx-auto mt-24">
-                <div class="rounded overflow-hidden shadow-md bg-white">
-                    <div class="absolute -mt-20 w-full flex justify-center">
-                        <div class="h-32 w-32">
-                            <img src="https://pagesix.com/wp-content/uploads/sites/3/2013/10/toni_garrn.jpg" class="rounded-full object-cover h-full w-full shadow-md" />
-                        </div>
-                    </div>
-                    <div class="px-6 mt-16">
-                        <h1 class="font-bold text-3xl text-center mb-1 text-gray-500">Toni Garrn</h1>
-                        <p class="text-gray-800 text-sm text-center">German model</p>
-                        <div class="w-full flex justify-center pt-5 pb-5">
-                            <a href="https://www.instagram.com/tonigarrn" class="mx-5">
-                                <div aria-label="Instagram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-instagram">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+              <!-- Card 3 -->
+              <div class="bg-white shadow-md rounded-lg overflow-hidden max-w-sm flex flex-col">
+                <img src="https://themusicessentials.com/wp-content/uploads/2025/01/Blake-Lively-Video.webp" alt="Blake Lively" class="w-full h-48 object-cover">
+                <div class="p-4">
+                  <h2 class="text-lg font-semibold text-gray-800">Blake Lively</h2>
+                  <p class="text-gray-600 mt-2">American actress</p>
                 </div>
-            </div>
-            <div class="relative mt-16 mb-32 max-w-sm mx-auto mt-24">
-                <div class="rounded overflow-hidden shadow-md bg-white">
-                    <div class="absolute -mt-20 w-full flex justify-center">
-                        <div class="h-32 w-32">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXIEHTebMhBEaleNYfvvZ1GrUGqYez4PLEzg&s" class="rounded-full object-cover h-full w-full shadow-md" />
-                        </div>
-                    </div>
-                    <div class="px-6 mt-16">
-                        <h1 class="font-bold text-3xl text-center mb-1 text-gray-500">Nina Agdal</h1>
-                        <p class="text-gray-800 text-sm text-center">Danish model</p>
-                        <div class="w-full flex justify-center pt-5 pb-5">
-                            <a href="https://twitter.com/NinaAgdal" class="mx-5">
-                                <div aria-label="Twitter">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-twitter">
-                                        <path
-                                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </a>
-                            <a href="https://www.instagram.com/ninaagdal/" class="mx-5">
-                                <div aria-label="Instagram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-instagram">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="bg-white shadow-md rounded-lg overflow-hidden max-w-sm flex flex-col">
+                <img src="https://pagesix.com/wp-content/uploads/sites/3/2013/10/toni_garrn.jpg" alt="Toni Garrn" class="w-full h-48 object-cover">
+                <div class="p-4">
+                  <h2 class="text-lg font-semibold text-gray-800">Toni Garrn</h2>
+                  <p class="text-gray-600 mt-2">German model</p>
                 </div>
-            </div>
-            <div class="relative mt-16 mb-32 max-w-sm mx-auto mt-24">
-                <div class="rounded overflow-hidden shadow-md bg-white">
-                    <div class="absolute -mt-20 w-full flex justify-center">
-                        <div class="h-32 w-32">
-                            <img src="https://www.hola.com/us/horizon/square/eb34e5898446-los-angeles-california-camila-morrone-attends-the-academy-museum-of-motion-pictu.jpg?im=Resize=(960),type=downsize" class="rounded-full object-cover h-full w-full shadow-md" />
-                        </div>
-                    </div>
-                    <div class="px-6 mt-16">
-                        <h1 class="font-bold text-3xl text-center mb-1 text-gray-500">Camila Morrone</h1>
-                        <p class="text-gray-800 text-sm text-center">American actress and model</p>
-                        <div class="w-full flex justify-center pt-5 pb-5">
-                            <a href="https://www.instagram.com/camilamorrone" class="mx-5">
-                                <div aria-label="Instagram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-instagram">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="bg-white shadow-md rounded-lg overflow-hidden max-w-sm flex flex-col">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXIEHTebMhBEaleNYfvvZ1GrUGqYez4PLEzg&s" alt="Nina Agdal" class="w-full h-48 object-cover">
+                <div class="p-4">
+                  <h2 class="text-lg font-semibold text-gray-800">Nina Agdal</h2>
+                  <p class="text-gray-600 mt-2">Danish model</p>
                 </div>
-            </div>
+              </div>
 
-            <div class="relative mt-16 mb-32 max-w-sm mx-auto mt-24">
-                <div class="rounded overflow-hidden shadow-md bg-white">
-                    <div class="absolute -mt-20 w-full flex justify-center">
-                        <div class="h-32 w-32">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtYyAtF0iKXj6aeW5MdxD7vPQD1VzpX36edw&s" class="rounded-full object-cover h-full w-full shadow-md" />
-                        </div>
-                    </div>
-                    <div class="px-6 mt-16">
-                        <h1 class="font-bold text-3xl text-center mb-1 text-gray-500">Vittoria Ceretti</h1>
-                        <p class="text-gray-800 text-sm text-center">American actress</p>
-                        <div class="w-full flex justify-center pt-5 pb-5">
-                            <a href="https://www.instagram.com/vittoria/" class="mx-5">
-                                <div aria-label="Instagram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="#718096" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-instagram">
-                                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+              <!-- Card 6 -->
+              <div class="bg-white shadow-md rounded-lg overflow-hidden max-w-sm flex flex-col">
+                <img src="https://www.hola.com/us/horizon/square/eb34e5898446-los-angeles-california-camila-morrone-attends-the-academy-museum-of-motion-pictu.jpg" alt="Camila Morrone" class="w-full h-48 object-cover">
+                <div class="p-4">
+                  <h2 class="text-lg font-semibold text-gray-800">Camila Morrone</h2>
+                  <p class="text-gray-600 mt-2">American actress and model</p>
                 </div>
+              </div>
             </div>
-        </div>
+        </section>
+        <section class="col-span-full">
+          <p>"There's no phenomenon on this planet more reliable than Leonardo DiCaprio breaking up with his girl by age 25, the stats are breathtaking," wrote @zedonarrival, gaining over 275,000 likes for her observation on <a href="https://www.newsweek.com/topic/twitter" data-sys="1" class="multivariate">Twitter</a>.</p>
+        </section>
+        <section class="col-span-full">
+                <figure class="fullCode"><div class="innerBox"><div class="code"><div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=true&amp;id=1565043743291588610&amp;lang=en&amp;origin=https%3A%2F%2Fwww.newsweek.com%2Fsabrina-carpenter-boyfriend-barry-keoghan-throws-birthday-party-leonardo-dicaprio-meme-cake-1900436&amp;sessionId=c46c222f5e54d423f532690852066e54cb479c4d&amp;siteScreenName=newsweek&amp;theme=light&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 550px; height: 753px; display: block; flex-grow: 1;" data-tweet-id="1565043743291588610"></iframe></div></div><figcaption class="caption">
+                <span class="cap">The original meme, as posted on X, formerly known as Twitter </span>
+                </figcaption></div>
+                </figure></section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-4  text-white">
-    <h4><strong>Gisele Bündchen (2000 – 2005)</strong></h4>
+                <section class="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0 col-span-full">
+                    <section class="relative px-10 md:p-0 transform duration-500 hover:shadow-2xl hover:-translate-y-1 ">
+                        <img class="xl:max-w-6xl" src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2020/07/10/15/leo-dicaprio-gfs.jpg?width=1200&height=1200&fit=crop" alt="">
+                        <div class="content bg-white bg-opacity-90 p-2 pt-8 md:p-12 pb-12 lg:max-w-lg w-full lg:absolute top-48 right-5">
+                            <h2 class="text-3xl font-semibold mt-4 md:mt-10">"By the time girls reach 25,</h2>
+                            <p class="my-3 text-justify font-medium text-gray-700 leading-relaxed">They're looking for more- they're looking to get married and settle down. That is not what Leo wants. He does not want a family and does not want to be around women who may press him for that. The minute a girl meets him, the clock is ticking. If she gets too old, in a couple of year, she is gone. If she gets too close, in a few years, she's gone."</p>
 
-    <p>One of DiCaprio’s most famous relationships was with supermodel Gisele Bündchen. They began dating in 2000 and were often seen together at red carpet events and charity functions. Their relationship lasted for five years, ending in 2005, but they remain on good terms. Gisele has spoken fondly of her time with DiCaprio, despite their split.</p>
-    <h4><strong>Bar Refaeli (2005 – 2011)</strong></h4>
+                            <div class="flex justify-between font-bold text-sm">
+                                <p>&mdash; A source close to Leonardo DiCaprio</p>
+                            </div>
+                        </div>
+                    </section>
+                </section>
 
-    <p>Following his relationship with Gisele, DiCaprio dated Israeli supermodel Bar Refaeli. Their on-and-off relationship spanned several years, with the couple often spotted together at various events. They officially ended their relationship in 2011, and Refaeli later stated that their breakup was amicable.</p>
+     </main>
 
-    <h4><strong>Blake Lively (2011)</strong></h4>
-    <p>DiCaprio had a brief romance with actress <a href="https://celebritydatinghistory.com/relationship-timeline/blake-lively-boyfriend/">Blake Lively</a> in 2011. Their relationship was short-lived but highly publicized, as both were at the peak of their careers. They were spotted together on several occasions, but the romance fizzled out after a few months.</p>
-    <h4><strong>Toni Garrn (2013 – 2014)</strong></h4>
-
-    <p>In 2013, DiCaprio began dating German model Toni Garrn. Their relationship lasted for about a year, during which they attended various events together. They eventually split in late 2014, but Garrn has often expressed respect for DiCaprio, acknowledging their time together.</p>
-
-    <h4><strong>Nina Agdal (2016 – 2017)</strong></h4>
-
-    <p>DiCaprio was linked to model Nina Agdal in 2016. The couple was seen together on vacation and at public events, but their relationship ended in 2017 after about a year of dating. Agdal has since moved on but has occasionally commented on her time with DiCaprio positively.</p>
-
-    <h4><strong>Camila Morrone (2017 – 2022)</strong></h4>
-
-    <p>Leonardo DiCaprio’s most recent long-term relationship was with model and actress Camila Morrone. They began dating in late 2017 and were often seen together at various events, including the Oscars. However, the couple parted ways in early 2022 after nearly five years together, leading to much speculation about DiCaprio’s dating patterns.</p>
-
-    <h3><strong>Current Relationship Status</strong></h3>
-
-    <p>As of 2024, Leonardo DiCaprio is reportedly single, focusing on his career and environmental activism. He has been linked to various women since his split from Morrone, but no official relationships have been confirmed.</p>
-
-    <h3 class=""><strong>FAQs</strong></h3>
-    <p></p>
-
-    <h4><strong>Who is Leonardo DiCaprio current Girlfriend?</strong></h4>
-
-    <p>As of 2024, Leonardo DiCaprio is reportedly single and has not confirmed any new relationships since his breakup with Camila Morrone.</p>
-
-    <h4><strong>How many serious relationships has Leonardo DiCaprio had?</strong></h4>
-
-    <p>Leonardo DiCaprio has had several serious relationships, most notably with Gisele Bündchen, Bar Refaeli, Toni Garrn, and Camila Morrone.</p>
-
-    <h4><strong>Did Leonardo DiCaprio date Blake Lively?</strong></h4>
-
-    <p>Yes, Leonardo DiCaprio briefly <a href="https://celebritydatinghistory.com/relationship-timeline/blake-lively-boyfriend/">dated Blake Lively</a> in 2011, but their relationship lasted only a few months.</p>
-
-    <h4><strong>Why did Leonardo DiCaprio and Camila Morrone break up?</strong></h4>
-
-    <p>While the exact reasons for the breakup are not publicly known, speculation suggests they parted ways amicably after nearly five years together.</p>
-
-    <h4><strong>Who is Leonardo DiCaprio’s longest-term girlfriend?</strong></h4>
-
-    <p>DiCaprio’s longest-term girlfriend was Camila Morrone, with whom he dated from late 2017 to early 2022.</p>
-</section>
-</article>
-  </main>
-
-  <footer class="pt-4">
-        <p class="text-gray-300 text-sm text-center">© 2025 Justin Chill</p>
-  </footer>
-  <script src="https://cdn.jsdelivr.net/npm/d3"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot"></script>
-
-    <script type="text/javascript">
-      var size = width > 450 ? 14 : 12;
-      var element = d3.select('figure').node();
-      var width = element.getBoundingClientRect().width;
-
-      const dataTable = new simpleDatatables.DataTable("#relationships", {
-          searchable: false,
-          fixedHeight: false,
-          paging: false,
-          autoWidth: true,
-          responsive: true,
-          scrollX: true,
-          order: [[2, 'desc']]
-      });
-
-      var leobirthday = new Date(1974, 11, 11);
-
-      // Define data
-      const df = [
-        { year: 1999, age_leo: 24, age_gf: 18, gf: "Gisele Bündchen" },
-        { year: 2000, age_leo: 25, age_gf: 19, gf: "Gisele Bündchen" },
-        { year: 2001, age_leo: 26, age_gf: 20, gf: "Gisele Bündchen" },
-        { year: 2002, age_leo: 27, age_gf: 21, gf: "Gisele Bündchen" },
-        { year: 2003, age_leo: 28, age_gf: 22, gf: "Gisele Bündchen" },
-        { year: 2004, age_leo: 29, age_gf: 23, gf: "Gisele Bündchen" },
-        { year: 2005, age_leo: 30, age_gf: 20, gf: "Bar Refaeli" },
-        { year: 2006, age_leo: 31, age_gf: 21, gf: "Bar Refaeli" },
-        { year: 2007, age_leo: 32, age_gf: 22, gf: "Bar Refaeli" },
-        { year: 2008, age_leo: 33, age_gf: 23, gf: "Bar Refaeli" },
-        { year: 2009, age_leo: 34, age_gf: 24, gf: "Bar Refaeli" },
-        { year: 2010, age_leo: 35, age_gf: 25, gf: "Blake Lively" },
-        { year: 2011, age_leo: 36, age_gf: 23, gf: "Erin Heatherton" },
-        { year: 2012, age_leo: 37, age_gf: 22, gf: "Erin Heatherton" },
-        { year: 2013, age_leo: 38, age_gf: 20, gf: "Toni Garrn" },
-        { year: 2014, age_leo: 39, age_gf: 21, gf: "Toni Garrn" },
-        { year: 2015, age_leo: 40, age_gf: 25, gf: "Kelly Rohrbach" },
-        { year: 2016, age_leo: 41, age_gf: 24, gf: "Nina Agdal" },
-        { year: 2017, age_leo: 42, age_gf: 25, gf: "Nina Agdal" },
-        { year: 2018, age_leo: 43, age_gf: 20, gf: "Camila Morrone" },
-        { year: 2019, age_leo: 44, age_gf: 21, gf: "Camila Morrone" },
-        { year: 2020, age_leo: 45, age_gf: 22, gf: "Camila Morrone" },
-        { year: 2021, age_leo: 46, age_gf: 23, gf: "Camila Morrone" },
-        { year: 2022, age_leo: 47, age_gf: 24, gf: "Victoria Lamas" },
-        { year: 2023, age_leo: 48, age_gf: 24, gf: "Vittoria Ceretti" },
-        { year: 2024, age_leo: 49, age_gf: 25, gf: "Vittoria Ceretti" },
-        { year: 2025, age_leo: 50, age_gf: 26, gf: "Vittoria Ceretti" },
-      ];
-
-      const max_points = [
-        { x: 2010, y: 25 },
-        { x: 2015, y: 25 },
-        { x: 2017, y: 25 }
-      ];
-
-      var chart = {
-        width: width,
-        height: 400,
-        marginTop: 40,
-        marginBottom: 40,
-        style: {
-          fontSize: size,
-          paddingBottom: 0,
-        },
-        y: {
-          tickSize: 4,
-          nice: true,
-          labelOffset: 0,
-          tickFormat: "Y",
-          domain: [15, 50],
-        },
-        x: {
-          tickSize: 0,
-          tickFormat: "Y",
-        },
-        color: {
-          legend: true,
-        },
-        marks: [
-          // Leo's age line
-          Plot.line(df, {x: "year", y: "age_leo", stroke: "#FD7600", fill: "#FD7600", marker: "circle-stroke", fill: "none"}),
-          Plot.text(df, {
-            x: "year",
-            y: (d) => d.age_leo + 1,
-            dy: -4,
-            text: (d) => d.age_leo.toString(),
-            fill: "#FD7600",
-            textAnchor: "middle",
-            fontSize: size + 4,
-          }),
-          // Girlfriend's age segments
-          Plot.barY(df, {x: "year", y: "age_gf", stroke: "#24C4C4", y1: 15, y2: "age_gf"}),
-          Plot.text(df, {
-            x: "year",
-            y: (d) => d.age_gf + 1,
-            dy: -2,
-            text: (d) => d.age_gf.toString(),
-            fill: "white",
-            fontSize: size + 4,
-            textAnchor: "middle",
-          }),
-          // Max age annotations
-          // Plot.text(max_points, {x: "x", y: "y", text: "Leo's Age Limit", color: "#B6B6B6"}),
-          Plot.image(df, {
-            filter: d => d.year != "2022",
-            x: "year",
-            y: 5,
-            r: 12,
-            width: 40,
-            dy: -12,
-            preserveAspectRatio: "xMidYMin slice",
-            src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
-            title: "gf"
-          }),
-          Plot.image(df, Plot.selectLast({
-            x: "year",
-            y: "age_leo",
-            src: (d) => `images/leonardo_dicaprio.png`,
-            width: 40,
-            dy: 40,
-            title: "Leonardo DiCaprio",
-          })),
-          Plot.text([
-            {x: 2025, y: 35, text: "As per 'Leo's Law', 4 relationships ended\nwhen they reached Leo's cutoff age of 25."}
-          ], {
-            x: "x",
-            y: "y",
-            text: (d) => d.text,
-            fontSize: size + 10,
-            frameAnchor: "right",
-            textAnchor: "end",
-            dy: -5,
-          })
-        ]
-      };
-
-      document.getElementById("chart").appendChild(Plot.plot(chart));
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+          <!-- Footer -->
+          <footer class="bg-slate-900">
+               <!-- Flex Container -->
+               <div
+               class="container px-6 py-10 mx-auto space-y-8 md:space-y-0"
+               >
+               <p class="hidden text-white md:block text-sm text-center">© 2025 Justin Chill</p>
+               </div>
+               </div>
+          </footer>
+      <script src="https://cdn.jsdelivr.net/npm/d3"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot"></script>
+      <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/umd/simple-datatables.min.js"></script>
+      <script src="https://cdn.tailwindcss.com"></script>
+     <script src="js/index.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,117 @@
+body {
+  background-image: url('../images/bg-tablet-pattern.svg');
+  background-repeat: no-repeat;
+  background-size: 800px;
+  background-position: 90% -10%;
+  width: 100%;
+}
+
+section{
+  padding: 2rem 0;
+}
+
+@media (max-width: 576px) {
+  body {
+    background-position: 50px -50px;
+    background-size: 500px;
+  }
+}
+
+/* Set HTML color-scheme value based on current theme */
+html {
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html[data-theme=dark] {
+  color-scheme: dark;
+}
+
+body {
+  /* Hide persistent scrollbar in IE (10/11) and Edge */
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  /* Anchor links will transition rather than skip */
+  scroll-behavior: smooth;
+
+  /* Reset font size to 1rem, in case it has a pixel value */
+  font-size: 1rem;
+  min-height: 100vh;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip-ink: auto;
+  cursor: pointer;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.215em;
+}
+
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar */
+}
+
+/* FocuCSSingly */
+a,
+button,
+input,
+select,
+submit,
+textarea,
+[tabindex]:not([tabindex="-1"]) {
+  outline: 2px solid transparent;
+  outline-offset: 5px;
+  -webkit-transition: outline-offset .2s linear;
+  -o-transition: outline-offset .2s linear;
+  transition: outline-offset .2s linear;
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+submit:focus,
+textarea:focus,
+[tabindex]:not([tabindex="-1"]):focus {
+  outline-color: currentColor;
+  outline-offset: 2px;
+}
