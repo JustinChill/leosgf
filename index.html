@@ -24,19 +24,22 @@
      <meta name="twitter:description" content="Leonardo DiCaprio’s Girlfriends And Infamous Dating History">
 
      <link type="text/plain" href="humans.txt" rel="author">
+     <script src="https://cdn.tailwindcss.com"></script>
+
+
      <!-- <link rel="stylesheet" href="style.css"> -->
      <link rel="icon" href="/favicon.ico">
      <meta name="theme-color" content="#4C63B6">
 
      <link href="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/style.min.css" rel="stylesheet">
 </head>
-<body>
+<body class=" bg-gray-50 dark:bg-slate-800 ">
      <nav class="relative container mx-auto p-6">
           <div class="flex item-center justify-between">
                <!-- logo -->
-               <div class="pt-2">
+               <!-- <div class="pt-2"> -->
                     <!-- <img src="images/logo.svg" alt="logo image"> -->
-               </div>
+               <!-- </div> -->
                <!-- Menu Items-->
 <!--                <div class="hidden md:flex space-x-6">
                     <a href="#" class="hover:text-darkGrayisBlue">Pricing</a>
@@ -67,49 +70,39 @@
           </div>
           
      </nav>
-     <main class="grid max-w-screen-lg mx-auto lg:gap-8 xl:gap-0 lg:py-12 lg:grid-cols-12 w-full rounded-lg">
+     <main class="grid max-w-screen-lg mx-auto lg:gap-8 lg:grid-cols-12 w-full rounded-lg gap-y-20 px-5 md:px-0">
      <section id="hero" class="col-span-full">
-          <div class="container flex flex-col-reverse md:flex-row item-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
+          <div class="col-span-4 md:col-span-6 lg:col-span-5 flex flex-col justify-center gap-4 md:gap-6 flex flex-col-reverse md:flex-row item-center px-6 mx-auto space-y-0 md:space-y-0">
                <!-- left item -->
-               <div class="flex flex-col mb-32 space-y-12 md:w-1/2 justify-center">
+               <div class="flex flex-col space-y-12 md:w-1/2 justify-center">
                     <h1 class="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left"><span style="color: orange;"><strong>Leonardo DiCaprio</strong></span> refuses to date a woman his own age</h1>
                     <p class="max-w-sm text-center text-darkGrayisBlue md:text-left">
                        
                     </p>
                </div>
                <!-- Images -->
-               <div class="md:w-1/3 drop-shadow-lg mx-auto">
-                    <img src="images/leo_shirtless.png" alt="A young Leonardo DiCaprio wearing a bathing suit a looking happy." class="rounded-full transition-all duration-300 filter grayscale hover:grayscale-0 drop-shadow-lg" >
+               <div class="col-span-4 md:col-span-6 drop-shadow-lg mx-auto">
+                    <img src="images/leo_shirtless.png" alt="A young Leonardo DiCaprio wearing a bathing suit a looking happy." class="rounded-full transition-all duration-300 filter grayscale hover:grayscale-0 drop-shadow-lg max-w-xs" >
                </div>
           </div>
      </section>
      <!-- features section -->
      <section class="col-span-full">
-      <div class="container flex flex-col-reverse md:flex-row item-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
-        <h2><span style="color: orange;"><strong>He</strong></span> gets older, they stay the same age. Leo's <span style="color: orange"><strong>50</strong></span> years old but prefers dating women ≤ 25.</h2>
-                </div>
-       <figure id="chart" alt="A data visualization showing Leonardo DiCaprio’s girlfriends over time. Leo's age is shown in orange, and the ages of his girlfriends are below." class="flex-col"></figure>
+          <h2 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-xl lg:text-2xl dark:text-white"><span style="color: orange;"><strong>He</strong></span> gets older, they stay the same age. </h2>
+          <h3 class="mb-4 mt-0 text-lg font-light leading-relaxed">Leo's <span class="font-bold" style="color: orange"><strong>50</strong></span> years old but prefers dating women <span class="font-bold">≤ 25</span>.</h3>
+
+        <figure id="chart" alt="A data visualization showing Leonardo DiCaprio’s girlfriends over time. Leo's age is shown in orange, and the ages of his girlfriends are below." class="flex-col"></figure>
      </section>
      <section id="features" class="col-span-full">
+      <h2 class="max-w-md text-4xl font-bold text-center md:text-left">
+        Leo's previous girlfriends
+      </h2>
+      <p class="mb-4 mt-0 text-base font-light leading-relaxed">As a lifelong celebrity, Leo has aged in the public eye, with every relationship, date, casual fling, and outing generating press and media attention. Most of his high-profile relationships have been with women under the age of 25. His last long-term relationship, with actor and model Camila Morrone, ended shortly after she turned 25.
+      </p>
           <!-- Flex container -->
           <div
-            class="container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row"
+            class="container col-span-full space-y-12 md:space-y-0 md:flex-row"
           >
-            <!-- What's Different -->
-            <div class="flex flex-col space-y-12 md:w-1/2">
-
-              <h2 class="max-w-md text-4xl font-bold text-center md:text-left">
-                Leo's previous girlfriends
-              </h2>
-
-              <p class="max-w-sm text-center text-darkGrayishBlue md:text-left">
-                As a lifelong celebrity, Leo has aged in the public eye, with every relationship, date, casual fling, and outing generating press and media attention. Most of his high-profile relationships have been with women under the age of 25. His last long-term relationship, with actor and model Camila Morrone, ended shortly after she turned 25.
-              </p>
-            </div>
-    
-            <!-- Numbered List -->
-            <div class="flex flex-col space-y-8 md:w-1/2">
-              <!-- List Item 1 -->
               <table id="relationships" class="display dataTable" style="width:100%">
                       <thead>
                           <tr>
@@ -186,7 +179,6 @@
                           </tr>
                       </tfoot>
                   </table>
-            </div>
           </div>
         </section>
         <section class="col-span-full">
@@ -248,18 +240,35 @@
             </div>
         </section>
         <section class="col-span-full">
-          <p>"There's no phenomenon on this planet more reliable than Leonardo DiCaprio breaking up with his girl by age 25, the stats are breathtaking," wrote @zedonarrival, gaining over 275,000 likes for her observation on <a href="https://www.newsweek.com/topic/twitter" data-sys="1" class="multivariate">Twitter</a>.</p>
+          <div class="relative m-16">
+              <span class="absolute -z-10  w-full h-full inset-1 bg-violet-500 rounded-xl"></span>
+              <button class="absolute py-1 z-10 px-3 -left-8 -top-2 -rotate-[10deg] black_border bg-violet-500 text-white font-bold">
+              RUMOR ALERT!
+          </button>
+
+              <div class="p-8 border border-black purple_border bg-white rounded-xl z-20">
+                  Through the years, rumors DiCaprio and <span class="text-purple-700 font-bold">Rihanna</span> were a thing would come and go. Rumors were heightened in 2017 when they were spotted together in Paris for the singer’s birthday. On March 2024, Crystal Hefner told the show Carrie And Tommy via <a href="https://www.perthnow.com.au/entertainment/celebrity-gossip/hugh-hefners-wife-at-death-crystal-reveals-visitors-to-playboy-mansion-including-leo-dicaprio-and-rihanna-c-13858578">PerthNow</a> that while she lived at the mansion, she saw Rihanna and DiCaprio hooking up there. “I remember Leonardo DiCaprio and Rihanna hooking up one night … I remember thinking, ‘That’s smart, hook up with each other and then we won’t tell anyone.’”
+
+
+              </div>
+          </div>
         </section>
         <section class="col-span-full">
+          <div
+            class="container flex flex-col space-y-12 md:space-y-0 md:flex-row"
+          >
+          <p>"There's no phenomenon on this planet more reliable than Leonardo DiCaprio breaking up with his girl by age 25, the stats are breathtaking," wrote @zedonarrival, gaining over 275,000 likes for her observation on <a href="https://www.newsweek.com/topic/twitter" data-sys="1" class="multivariate">Twitter</a>.</p>
                 <figure class="fullCode"><div class="innerBox"><div class="code"><div class="twitter-tweet twitter-tweet-rendered" style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" title="X Post" src="https://platform.twitter.com/embed/Tweet.html?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOltdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9iYWNrZW5kIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19yZWZzcmNfc2Vzc2lvbiI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfZm9zbnJfc29mdF9pbnRlcnZlbnRpb25zX2VuYWJsZWQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X21peGVkX21lZGlhXzE1ODk3Ijp7ImJ1Y2tldCI6InRyZWF0bWVudCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3Nob3dfYmlyZHdhdGNoX3Bpdm90c19lbmFibGVkIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19kdXBsaWNhdGVfc2NyaWJlc190b19zZXR0aW5ncyI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdXNlX3Byb2ZpbGVfaW1hZ2Vfc2hhcGVfZW5hYmxlZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0ZndfdmlkZW9faGxzX2R5bmFtaWNfbWFuaWZlc3RzXzE1MDgyIjp7ImJ1Y2tldCI6InRydWVfYml0cmF0ZSIsInZlcnNpb24iOm51bGx9LCJ0ZndfbGVnYWN5X3RpbWVsaW5lX3N1bnNldCI6eyJidWNrZXQiOnRydWUsInZlcnNpb24iOm51bGx9LCJ0ZndfdHdlZXRfZWRpdF9mcm9udGVuZCI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9fQ%3D%3D&amp;frame=false&amp;hideCard=false&amp;hideThread=true&amp;id=1565043743291588610&amp;lang=en&amp;origin=https%3A%2F%2Fwww.newsweek.com%2Fsabrina-carpenter-boyfriend-barry-keoghan-throws-birthday-party-leonardo-dicaprio-meme-cake-1900436&amp;sessionId=c46c222f5e54d423f532690852066e54cb479c4d&amp;siteScreenName=newsweek&amp;theme=light&amp;widgetsVersion=2615f7e52b7e0%3A1702314776716&amp;width=550px" style="position: static; visibility: visible; width: 550px; height: 753px; display: block; flex-grow: 1;" data-tweet-id="1565043743291588610"></iframe></div></div><figcaption class="caption">
                 <span class="cap">The original meme, as posted on X, formerly known as Twitter </span>
                 </figcaption></div>
-                </figure></section>
+                </figure>
+</div>
+              </section>
 
-                <section class="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0 col-span-full">
-                    <section class="relative px-10 md:p-0 transform duration-500 hover:shadow-2xl hover:-translate-y-1 ">
-                        <img class="xl:max-w-6xl" src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2020/07/10/15/leo-dicaprio-gfs.jpg?width=1200&height=1200&fit=crop" alt="">
-                        <div class="content bg-white bg-opacity-90 p-2 pt-8 md:p-12 pb-12 lg:max-w-lg w-full lg:absolute top-48 right-5">
+                <!-- <section class="container mx-auto p-10 md:py-20 px-0 md:p-10 md:px-0 col-span-full"> -->
+                    <section class="w-full col-span-full relative md:p-0 transform duration-500 hover:shadow-2xl hover:-translate-y-1 ">
+                        <img class="w-full" src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2020/07/10/15/leo-dicaprio-gfs.jpg?width=1200&height=1200&fit=crop" alt="">
+                        <div class="rounded content bg-white bg-opacity-90 p-2 pt-4 md:p-12 pb-4 lg:max-w-lg lg:absolute top-48 right-5">
                             <h2 class="text-3xl font-semibold mt-4 md:mt-10">"By the time girls reach 25,</h2>
                             <p class="my-3 text-justify font-medium text-gray-700 leading-relaxed">They're looking for more- they're looking to get married and settle down. That is not what Leo wants. He does not want a family and does not want to be around women who may press him for that. The minute a girl meets him, the clock is ticking. If she gets too old, in a couple of year, she is gone. If she gets too close, in a few years, she's gone."</p>
 
@@ -268,10 +277,20 @@
                             </div>
                         </div>
                     </section>
-                </section>
-
+                <!-- </section> -->
      </main>
-
+       <!-- Todo: find better way to define SVG gradient, as in https://observablehq.com/@observablehq/plot-area-chart-with-gradient -->
+       <svg
+       version="1.1"
+       xmlns="http://www.w3.org/2000/svg"
+       xmlns:xlink="http://www.w3.org/1999/xlink" class="visually-hidden">
+       <defs>
+         <linearGradient id="gradient" gradientTransform="rotate(90)">
+          <stop offset="0%" style="stop-color:LIGHTSALMON" />
+          <stop offset="100%" style="stop-color:rebeccapurple;" />
+         </linearGradient>
+       </defs>
+     </svg>
           <!-- Footer -->
           <footer class="bg-slate-900">
                <!-- Flex Container -->
@@ -285,7 +304,6 @@
       <script src="https://cdn.jsdelivr.net/npm/d3"></script>
       <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot"></script>
       <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.2.2/dist/umd/simple-datatables.min.js"></script>
-      <script src="https://cdn.tailwindcss.com"></script>
      <script src="js/index.js"></script>
 </body>
 </html>

@@ -60,6 +60,8 @@ const max_points = [
   { x: 2017, y: 25 }
 ];
 
+var mobile = window.innerWidth <= 500;  // True if the width is 500px or less, otherwise false
+
 var chart = {
   width: width,
   height: 400,
@@ -96,14 +98,13 @@ var chart = {
       fontSize: size + 4,
     }),
     // Girlfriend's age segments
-    Plot.barY(df, {x: "year", y: "age_gf", stroke: "#24C4C4", y1: 15, y2: "age_gf"}),
+    Plot.barY(df, {x: "year", y: "age_gf", y1: 15, y2: "age_gf",fill: "url(#gradient)", title: "gf"}),
     Plot.text(df, {
       x: "year",
       y: (d) => d.age_gf + 1,
       dy: -2,
       text: (d) => d.age_gf.toString(),
-      fill: "white",
-      fontSize: size + 4,
+      className: "text-base",
       textAnchor: "middle",
     }),
     // Max age annotations
@@ -127,17 +128,18 @@ var chart = {
       dy: 40,
       title: "Leonardo DiCaprio",
     })),
-    Plot.text([
+    mobile ? null : Plot.text([
       {x: 2025, y: 35, text: "As per 'Leo's Law', 4 relationships ended\nwhen they reached Leo's cutoff age of 25."}
     ], {
       x: "x",
       y: "y",
       text: (d) => d.text,
-      fontSize: size + 10,
+      className: "text-base",
+      fontWeight: 300,
       frameAnchor: "right",
       textAnchor: "end",
       dy: -5,
-    })
+    }),
   ]
 };
 
