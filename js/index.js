@@ -60,7 +60,8 @@ const max_points = [
   { x: 2017, y: 25 }
 ];
 
-var mobile = window.innerWidth <= 500;  // True if the width is 500px or less, otherwise false
+var mobile = window.innerWidth <= 600;  // True if the width is 500px or less, otherwise false
+console.log(mobile);
 
 var chart = {
   width: width,
@@ -70,23 +71,51 @@ var chart = {
   style: {
     fontSize: size,
     paddingBottom: 0,
+    overflow: "visible",
+    paddingLeft: 10,
   },
   y: {
     tickSize: 4,
+    grid: true,
     nice: true,
-    labelOffset: 0,
-    tickFormat: "Y",
-    domain: [15, 50],
-  },
-  x: {
     tickSize: 0,
-    tickFormat: "Y",
+    labelOffset: 0,
+    dx: 2, // offset right
+    dy: -4, // offset up
+    lineAnchor: "bottom", // draw labels above grid lines
+    // tickFormat: "Y",
+    domain: [15, 50],
+    tickFormat: (d, i, _) => (i === _.length - 1 ? `${d} years` : `${d}`),
   },
   color: {
     legend: true,
   },
   marks: [
+    Plot.axisY({ 
+      tickSize: 4,
+      grid: true,
+      nice: true,
+      tickSize: 0,
+      dx: 4, // offset right
+      dy: -4, // offset up
+      lineAnchor: "bottom", // draw labels above grid lines
+      // tickFormat: "Y",
+      domain: [15, 50],
+      tickFormat: (d, i, _) => (i === _.length - 1 ? `${d} years` : `${d}`),
+    }),
     // Leo's age line
+    Plot.axisX({ 
+      tickFormat: null,
+      label: null,
+      tickSize: 2,
+      nice: true,
+    }),
+    Plot.axisX({ // Draw second axis for clearer labeling
+      tickFormat: "Y",
+      nice: true,
+      dy: 20,
+      ticks: d3.range(1975,2030,5)
+    }),
     Plot.line(df, {x: "year", y: "age_leo", stroke: "#FD7600", fill: "#FD7600", marker: "circle-stroke", fill: "none"}),
     Plot.text(df, {
       x: "year",
@@ -99,7 +128,8 @@ var chart = {
     }),
     // Girlfriend's age segments
     Plot.barY(df, {x: "year", y: "age_gf", y1: 15, y2: "age_gf",fill: "url(#gradient)", title: "gf"}),
-    Plot.text(df, {
+    mobile ? null : Plot.text(df, {
+      filter: (d) => d.age_gf !== 25,
       x: "year",
       y: (d) => d.age_gf + 1,
       dy: -2,
@@ -107,19 +137,29 @@ var chart = {
       className: "text-base",
       textAnchor: "middle",
     }),
+    Plot.text(df, {
+      filter: (d) => d.age_gf == 25,
+      x: "year",
+      y: (d) => d.age_gf + 1,
+      dy: -2,
+      text: (d) => d.age_gf.toString(),
+      className: "text-base",
+      textAnchor: "middle",
+      fontWeight: 700,
+    }),
     // Max age annotations
     // Plot.text(max_points, {x: "x", y: "y", text: "Leo's Age Limit", color: "#B6B6B6"}),
-    Plot.image(df, {
-      filter: d => d.year != "2022",
-      x: "year",
-      y: 5,
-      r: 12,
-      width: 40,
-      dy: -12,
-      preserveAspectRatio: "xMidYMin slice",
-      src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
-      title: "gf"
-    }),
+    // Plot.image(df, {
+    //   filter: d => d.year != "2022",
+    //   x: "year",
+    //   y: 5,
+    //   r: 12,
+    //   width: 40,
+    //   dy: -12,
+    //   preserveAspectRatio: "xMidYMin slice",
+    //   src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
+    //   title: "gf"
+    // }),
     Plot.image(df, Plot.selectLast({
       x: "year",
       y: "age_leo",
@@ -129,7 +169,7 @@ var chart = {
       title: "Leonardo DiCaprio",
     })),
     mobile ? null : Plot.text([
-      {x: 2025, y: 35, text: "As per 'Leo's Law', 4 relationships ended\nwhen they reached Leo's cutoff age of 25."}
+      {x: 2024, y: 35, text: "As per 'Leo's Law', 4 relationships ended\nwhen they reached Leo's cutoff age of 25."}
     ], {
       x: "x",
       y: "y",
@@ -138,7 +178,20 @@ var chart = {
       fontWeight: 300,
       frameAnchor: "right",
       textAnchor: "end",
-      dy: -5,
+      dy: -2,
+      fill: "currentColor",
+      stroke: "oklch(0.985 0.002 247.839)",
+      strokeWidth: 1.
+    }),    
+    Plot.image(df, {
+      y: 13,
+      x: "year",
+      dy: -10,
+      r: width > 600 ? 14 : 10,
+      className: "object-cover",
+      preserveAspectRatio: "xMidYMin slice",
+      title: "gf",
+      src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
     }),
   ]
 };
