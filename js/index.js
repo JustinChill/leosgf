@@ -113,18 +113,20 @@ var chart = {
     Plot.axisX({ // Draw second axis for clearer labeling
       tickFormat: "Y",
       nice: true,
-      dy: 20,
+      label: null,
+      dy: mobile ? 5 : 20,
       ticks: d3.range(1975,2030,5)
     }),
     Plot.line(df, {x: "year", y: "age_leo", stroke: "#FD7600", fill: "#FD7600", marker: "circle-stroke", fill: "none"}),
     Plot.text(df, {
       x: "year",
       y: (d) => d.age_leo + 1,
-      dy: -4,
+      dy: mobile ? -2 : -4,
       text: (d) => d.age_leo.toString(),
       fill: "#FD7600",
       textAnchor: "middle",
-      fontSize: size + 4,
+      // className: "text-base",
+      fontSize: mobile ? size - 2: size + 2,
     }),
     // Girlfriend's age segments
     Plot.barY(df, {x: "year", y: "age_gf", y1: 15, y2: "age_gf",fill: "url(#gradient)", title: "gf"}),
@@ -142,10 +144,14 @@ var chart = {
       x: "year",
       y: (d) => d.age_gf + 1,
       dy: -2,
+      dx: -1,
       text: (d) => d.age_gf.toString(),
-      className: "text-base",
+      // className: "text-base",
       textAnchor: "middle",
       fontWeight: 700,
+      stroke: "white",
+      fill: "currentColor",
+      fontSize: mobile ? size: size + 2,
     }),
     // Max age annotations
     // Plot.text(max_points, {x: "x", y: "y", text: "Leo's Age Limit", color: "#B6B6B6"}),
@@ -183,7 +189,7 @@ var chart = {
       stroke: "oklch(0.985 0.002 247.839)",
       strokeWidth: 1.
     }),    
-    Plot.image(df, {
+    mobile ? null : Plot.image(df, {
       y: 13,
       x: "year",
       dy: -10,
