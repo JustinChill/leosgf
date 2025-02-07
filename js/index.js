@@ -66,13 +66,10 @@ var mobile = window.innerWidth <= 600;  // True if the width is 500px or less, o
 var chart = {
   width: width,
   height: 400,
-  marginTop: 40,
-  marginBottom: 40,
   style: {
     fontSize: size,
     paddingBottom: 0,
     overflow: "visible",
-    paddingLeft: 10,
   },
   y: {
     tickSize: 4,
@@ -80,27 +77,14 @@ var chart = {
     nice: true,
     tickSize: 0,
     labelOffset: 0,
-    dx: 2, // offset right
-    dy: -4, // offset up
     lineAnchor: "bottom", // draw labels above grid lines
-    // tickFormat: "Y",
     domain: [15, 50],
-    tickFormat: (d, i, _) => (i === _.length - 1 ? `${d} years` : `${d}`),
-  },
-  color: {
-    legend: true,
   },
   marks: [
     Plot.axisY({ 
-      tickSize: 4,
-      grid: true,
-      nice: true,
       tickSize: 0,
-      dx: 4, // offset right
-      dy: -4, // offset up
-      lineAnchor: "bottom", // draw labels above grid lines
-      // tickFormat: "Y",
-      domain: [15, 50],
+      dx: 8, // offset right
+      dy: -5, // offset up
       tickFormat: (d, i, _) => (i === _.length - 1 ? `${d} years` : `${d}`),
     }),
     // Leo's age line
@@ -114,7 +98,7 @@ var chart = {
       tickFormat: "Y",
       nice: true,
       label: null,
-      dy: mobile ? 5 : 20,
+      // dy: mobile ? 5 : 20,
       ticks: d3.range(1975,2030,5)
     }),
     Plot.line(df, {x: "year", y: "age_leo", stroke: "#FD7600", fill: "#FD7600", marker: "circle-stroke", fill: "none"}),
@@ -125,8 +109,7 @@ var chart = {
       text: (d) => d.age_leo.toString(),
       fill: "#FD7600",
       textAnchor: "middle",
-      // className: "text-base",
-      fontSize: mobile ? size - 2: size + 2,
+      className: "text-xs",
     }),
     // Girlfriend's age segments
     Plot.barY(df, {x: "year", y: "age_gf", y1: 15, y2: "age_gf",fill: "url(#gradient)", title: "gf"}),
@@ -153,19 +136,6 @@ var chart = {
       fill: "currentColor",
       fontSize: mobile ? size: size + 2,
     }),
-    // Max age annotations
-    // Plot.text(max_points, {x: "x", y: "y", text: "Leo's Age Limit", color: "#B6B6B6"}),
-    // Plot.image(df, {
-    //   filter: d => d.year != "2022",
-    //   x: "year",
-    //   y: 5,
-    //   r: 12,
-    //   width: 40,
-    //   dy: -12,
-    //   preserveAspectRatio: "xMidYMin slice",
-    //   src: (d) => `images/${d.gf.toLowerCase().replace(' ', '_')}.png`,
-    //   title: "gf"
-    // }),
     Plot.image(df, Plot.selectLast({
       x: "year",
       y: "age_leo",
@@ -190,10 +160,10 @@ var chart = {
       strokeWidth: 1.
     }),    
     mobile ? null : Plot.image(df, {
-      y: 13,
+      y: 18,
       x: "year",
-      dy: -10,
-      r: width > 600 ? 14 : 10,
+      dy: 10,
+      r: width > 600 ? 15 : 10,
       className: "object-cover",
       preserveAspectRatio: "xMidYMin slice",
       title: "gf",
