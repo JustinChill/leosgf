@@ -13,12 +13,12 @@ var width = element.getBoundingClientRect().width;
 
 const dataTable = new simpleDatatables.DataTable("#relationships", {
     searchable: false,
-    fixedHeight: false,
+    // fixedHeight: false,
+    // scrollY: "300px", // enable vertical scrolling
     paging: false,
-    autoWidth: true,
-    responsive: true,
-    scrollX: true,
-    order: [[2, 'desc']]
+    // autoWidth: true,
+    // responsive: true,
+    // order: [[2, 'desc']]
 });
 
 var leobirthday = new Date(1974, 11, 11);
@@ -61,7 +61,7 @@ const max_points = [
 ];
 
 var mobile = window.innerWidth <= 600;  // True if the width is 500px or less, otherwise false
-console.log(mobile);
+// console.log(mobile);
 
 var chart = {
   width: width,
