@@ -69,7 +69,7 @@ var chart = {
   style: {
     fontSize: size,
     paddingBottom: 0,
-    overflow: "visible",
+    // overflow: "visible",
   },
   y: {
     tickSize: 4,
@@ -85,7 +85,7 @@ var chart = {
       tickSize: 0,
       dx: 8, // offset right
       dy: -5, // offset up
-      tickFormat: (d, i, _) => (i === _.length - 1 ? `${d} years` : `${d}`),
+      // tickFormat: (d, i, _) => (i === _.length - 1 ? `${d} years` : `${d}`),
     }),
     // Leo's age line
     Plot.axisX({ 
@@ -102,7 +102,7 @@ var chart = {
       ticks: d3.range(1975,2030,5)
     }),
     Plot.line(df, {x: "year", y: "age_leo", stroke: "#FD7600", fill: "#FD7600", marker: "circle-stroke", fill: "none"}),
-    Plot.text(df, {
+    mobile ? null : Plot.text(df, {
       x: "year",
       y: (d) => d.age_leo + 1,
       dy: mobile ? -2 : -4,
@@ -111,6 +111,32 @@ var chart = {
       textAnchor: "middle",
       className: "text-xs",
     }),
+    mobile ? Plot.text(df, Plot.selectLast({
+      x: "year",
+      y: (d) => d.age_leo + 1,
+      dy: mobile ? -2 : -4,
+      text: (d) => d.age_leo.toString(),
+      fill: "#FD7600",
+      textAnchor: "middle",
+      fontWeight: 500,
+      className: "text-base",
+    })) : null,
+    mobile ? Plot.text([
+      {x: 2016, y: 47, text: "Leo's age"}
+    ], {
+      x: "x",
+      y: "y",
+      text: (d) => d.text,
+      className: "text-base",
+      frameAnchor: "top",
+      dy: -2,
+      fill: "#FD7600",
+      textAnchor: "middle",
+      fontWeight: 700,
+      className: "text-base",
+      stroke: "oklch(0.985 0.002 247.839)",
+      strokeWidth: 1.
+    }) : null,
     // Girlfriend's age segments
     Plot.barY(df, {x: "year", y: "age_gf", y1: 15, y2: "age_gf",fill: "url(#gradient)", title: "gf"}),
     mobile ? null : Plot.text(df, {
@@ -159,11 +185,11 @@ var chart = {
       stroke: "oklch(0.985 0.002 247.839)",
       strokeWidth: 1.
     }),    
-    mobile ? null : Plot.image(df, {
+    Plot.image(df, {
       y: 18,
       x: "year",
-      dy: 10,
-      r: width > 600 ? 15 : 10,
+      dy: width > 600 ? 15 : 20,
+      r: width > 600 ? 15 : 7,
       className: "object-cover",
       preserveAspectRatio: "xMidYMin slice",
       title: "gf",
